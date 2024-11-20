@@ -1,0 +1,31 @@
+os: linux
+dist: xenial
+language: shell
+virt: lxd
+
+install: skip
+script: sleep 10
+
+jobs:
+  include:
+    - dist: bionic
+      arch: arm64
+    - dist: focal
+      arch: arm64
+    - dist: jammy
+      arch: arm64
+    - dist: bionic
+      arch: arm64-graviton2
+      group: edge
+    - dist: focal
+      arch: arm64-graviton2
+      group: edge
+    - dist: jammy
+      arch: arm64-graviton2
+      group: edge
+deploy:
+  # dpl_version: 1.10.16
+  provider: script
+  on:
+    all_branches: true
+  script: echo "Hello"

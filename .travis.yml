@@ -1,7 +1,6 @@
 os: linux
 dist: xenial
 language: shell
-virt: lxd
 
 install: skip
 script: sleep 10
@@ -17,14 +16,17 @@ jobs:
     - dist: bionic
       arch: arm64-graviton2
       group: edge
+      virt: lxd
     - dist: focal
       arch: arm64-graviton2
       group: edge
+      virt: lxd
     - dist: jammy
       arch: arm64-graviton2
       group: edge
+      virt: lxd
+
 deploy:
-  # dpl_version: 1.10.16
   provider: script
   on:
     all_branches: true
